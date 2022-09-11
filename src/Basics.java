@@ -1,5 +1,6 @@
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import io.restassured.specification.RequestSpecification;
 import utils.Payload;
 
 import static io.restassured.RestAssured.*;
@@ -22,6 +23,10 @@ public class Basics {
 		// Add place -> Update place with new Address -> Get place to validate the new address appears in response
 		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
+		
+		RequestSpecification reqSpec = given();
+		reqSpec.baseUri("https://rahulshettyacademy.com");
+		reqSpec.basePath("");
 		
 //		String addAddressResponse = given().log().all()
 //		.queryParam("key", "qaclick123")

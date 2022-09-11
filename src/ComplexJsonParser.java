@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import org.testng.Assert;
@@ -10,7 +9,7 @@ import utils.Payload;
 public class ComplexJsonParser {
 
 	public static void main(String[] args) {
-		 
+		
 		JsonPath jp = new JsonPath(Payload.JSON_OBJ_COURSES);
 				
 		// 1. Print No of courses returned by API

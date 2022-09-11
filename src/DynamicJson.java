@@ -46,5 +46,4 @@ public class DynamicJson {
 		JsonPath jp = ReusableMethods.rawToJson(response);
 		System.out.println(jp);
 	}
-
 }
