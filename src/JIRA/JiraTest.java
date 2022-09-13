@@ -20,7 +20,7 @@ public class JiraTest {
 	private static String ISSUED_ID;
 	
 	@BeforeSuite
-	private void login() {
+	private void loginUsingCookies() {
 		RestAssured.baseURI = BASE_URI;
 		
 		given()
@@ -34,7 +34,7 @@ public class JiraTest {
 	
 	@Test
 //	@Ignore
-	public void  Test1LoginAndAddComment() {
+	public void  Test1AddComment() {
 		RestAssured.baseURI = BASE_URI;
 		
 		given()
