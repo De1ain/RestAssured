@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-13T20:38:56 IDT" name="Default suite" finished-at="2022-09-13T20:38:58 IDT" duration-ms="2549">
+  <suite started-at="2022-09-22T16:31:25 IDT" name="Default suite" finished-at="2022-09-22T16:31:27 IDT" duration-ms="1892">
     <groups>
     </groups>
-    <test started-at="2022-09-13T20:38:56 IDT" name="Default test" finished-at="2022-09-13T20:38:58 IDT" duration-ms="2549">
-      <class name="oauth.OAuth">
-        <test-method signature="TestOAuth()[pri:0, instance:oauth.OAuth@564fabc8]" started-at="2022-09-13T20:38:56 IDT" name="TestOAuth" finished-at="2022-09-13T20:38:58 IDT" duration-ms="2523" status="PASS">
+    <test started-at="2022-09-22T16:31:25 IDT" name="Default test" finished-at="2022-09-22T16:31:27 IDT" duration-ms="1892">
+      <class name="serialization.SerializeTests">
+        <test-method signature="Test1()[pri:0, instance:serialization.SerializeTests@72967906]" started-at="2022-09-22T16:31:25 IDT" name="Test1" finished-at="2022-09-22T16:31:27 IDT" duration-ms="1861" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TestOAuth -->
-      </class> <!-- oauth.OAuth -->
+        </test-method> <!-- Test1 -->
+      </class> <!-- serialization.SerializeTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
