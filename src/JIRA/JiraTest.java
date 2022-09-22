@@ -139,4 +139,19 @@ public class JiraTest {
 			System.out.println(jp.getString("fields.attachment["+i+"].filename") + " " + jp.getString("fields.attachment["+i+"].created"));
 		}
 	}
+	
+//	@Test
+//	public void Test4GetComment() {
+//		RestAssured.baseURI = "http://localhost:8080";
+//		
+//		String comments = given()
+//		.pathParam("key", "RAAUT-1")
+//		.filter(sf)
+//		.when().get("/rest/api/2/issue/{key}/comment")
+//		.then().assertThat()
+//		.statusCode(200)
+//		.extract().asString()
+//		;
+////		System.out.println("comments: " + comments);
+//	}
 }
