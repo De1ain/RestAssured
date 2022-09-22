@@ -10,8 +10,12 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+import com.google.gson.Gson;
+
+import POJO.ResponsePOJO;
 import io.restassured.RestAssured;
 import io.restassured.filter.session.SessionFilter;
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
@@ -40,7 +44,7 @@ public class OAuth {
 //		inputPassword.sendKeys(Keys.ENTER);
 //		Thread.sleep(2000);	
 //		String currentURL = driver.getCurrentUrl();
-		String currentURL = "https://rahulshettyacademy.com/getCourse.php?code=4%2F0AdQt8qgk7WRcM6rZMELCi69LLZ7GXRXirmMWy32xFTIFIR0iBKWs1itSxPLcCa3cTH4EKg&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=none";
+		String currentURL = "https://rahulshettyacademy.com/getCourse.php?code=4%2F0ARtbsJpdxbNEY3HhBeQQkAlBoBAzCxcoNhVRDvpeEKU1pxLmy71IHkbAaseTNsY_Fg-guw&scope=email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none";
 //		driver.close();
 		
 		String partialCode = currentURL.split("code=")[1];
@@ -65,18 +69,35 @@ public class OAuth {
 		String accessToken = jp.getString("access_token");
 		System.out.println("accessToken: " + accessToken);
 		
-		String response = given()
+		ResponsePOJO responsePOJO = given()
 		.queryParam("access_token", accessToken)
+		.expect().defaultParser(Parser.JSON) // no need to specify if "Content-Type" header is "application/json"
 		.when().get("https://rahulshettyacademy.com/getCourse.php")
 //		.then()
 //		.extract()
-		.asString()
+//		.asString()
+		.as(ResponsePOJO.class)
 		;
 		
-		System.out.println("response: " + response);
+		System.out.println("response: " + responsePOJO);
+		System.out.println(responsePOJO.getLinkedIn());
+		
+		int listSize = responsePOJO.getCourses().getWebAutomation().size();
+		for (int i = 0; i < listSize; i++) {
+			System.out.print(responsePOJO.getCourses().getWebAutomation().get(i).getCourseTitle() + " - ");
+			System.out.println(responsePOJO.getCourses().getWebAutomation().get(i).getPrice());		
+			
+			if(responsePOJO.getCourses().getWebAutomation().get(i).getCourseTitle().contains("Webdriver ")) {
+				System.out.println(responsePOJO.getCourses().getWebAutomation().get(i).getPrice());
+			}
+		}
+		
+		
+
 	}
 	
 	@Test
+	@Ignore
 	public void TestOAuthGrantTypeClientCredentials() throws InterruptedException {
 		
 	}
