@@ -2,13 +2,14 @@ package serialization;
 
 import static io.restassured.RestAssured.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import serialization.BodyPOJO;
+import serialization.LocationPOJO;
 
 public class SerializeTests {
 
